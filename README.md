@@ -8,16 +8,19 @@ Resources and Commands used during the Dive Into Kubernetes - Introduction Cours
 ### containerd
 
 https://github.com/containerd/containerd
+
 https://github.com/containerd/containerd/releases
 
 ### nerdctl
 
 https://github.com/containerd/nerdctl
+
 https://github.com/containerd/nerdctl/releases
 
 ### CNI Plugins
 
 https://github.com/containernetworking/plugins
+
 https://github.com/containernetworking/plugins/releases
 
 ### Kubeadm Install
