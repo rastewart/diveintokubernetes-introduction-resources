@@ -1,7 +1,34 @@
 ![Course Cover](Cover.png "Dive Into Kubernetes Introduction")
 
 # Dive Into Kubernetes - Introduction - Command Execution
-Commands executed during the Dive Into Kubernetes - Introduction Course - https://youtu.be/n4zxKk2an3U
+Resources and Commands used during the Dive Into Kubernetes - Introduction Course - https://youtu.be/n4zxKk2an3U
+
+## Web Links -
+
+### containerd
+
+https://github.com/containerd/containerd
+https://github.com/containerd/containerd/releases
+
+### nerdctl
+
+https://github.com/containerd/nerdctl
+https://github.com/containerd/nerdctl/releases
+
+### CNI Plugins
+
+https://github.com/containernetworking/plugins
+https://github.com/containernetworking/plugins/releases
+
+### Kubeadm Install
+
+https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-kubeadm
+
+### CNI Plugins Bridge
+
+https://www.cni.dev/plugins/current/main/bridge
+
+## Commands -
 
 ```
 # Let's switch to a root user
