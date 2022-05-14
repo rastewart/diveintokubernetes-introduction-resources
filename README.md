@@ -3,9 +3,11 @@
 # Dive Into Kubernetes - Introduction - Command Execution
 Resources and Commands used during the Dive Into Kubernetes - Introduction Course - https://youtu.be/n4zxKk2an3U
 
-## Updates
+## Updates / Remarks
 
 * On Kubernetes 1.24, you may also need to remove the new taint of 'node-role.kubernetes.io/control-plane:NoSchedule' with ```kubectl taint nodes $k8s_master node-role.kubernetes.io/control-plane:NoSchedule-```
+
+* During the course I state and visualise that Dockershim is deprecated in Kubernetes 1.24, the terminology should have been 'Deprecated in 1.20 and Removed in 1.24'
 
 ## Web Links -
 
