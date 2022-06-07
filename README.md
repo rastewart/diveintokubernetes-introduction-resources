@@ -1,7 +1,7 @@
 ![Course Cover](Cover.png "Dive Into Kubernetes Introduction")
 
 # Dive Into Kubernetes - Introduction - Command Execution
-Resources and Commands used during the Dive Into Kubernetes - Introduction Course - https://youtu.be/n4zxKk2an3U
+Resources and Commands used during the Dive Into Kubernetes - Introduction Course
 
 ## Updates / Remarks
 
@@ -130,6 +130,8 @@ kubectl describe node $k8s_master | more
 
 # Remove taint
 kubectl taint nodes $k8s_master node-role.kubernetes.io/master:NoSchedule-
+# If you are using Kubernetes 1.24 you'll also need to remove this taint
+kubectl taint nodes $k8s_master node-role.kubernetes.io/control-plane:NoSchedule-
 
 ## Not covered in the course, you may also need to remove the following taint if it is set (changed in 1.24)
 kubectl taint nodes $k8s_master node-role.kubernetes.io/control-plane:NoSchedule-
