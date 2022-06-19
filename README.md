@@ -48,6 +48,11 @@ cd /tmp
 
 # We'll run an apt update to populate apt
 apt update
+apt-get update -y
+
+# update root certs
+apt-get install -y ca-certificates
+
 
 # And we'll install containerd
 apt install containerd
@@ -58,16 +63,16 @@ systemctl start containerd
 systemctl status containerd
 
 # Install nerdctl
-wget https://github.com/containerd/nerdctl/releases/download/v0.18.0/nerdctl-0.18.0-linux-amd64.tar.gz
-tar zxvf nerdctl-0.18.0-linux-amd64.tar.gz nerdctl
+wget https://github.com/containerd/nerdctl/releases/download/v0.21.0/nerdctl-0.21.0-linux-amd64.tar.gz \
+tar zxvf nerdctl-0.21.0-linux-amd64.tar.gz nerdctl \
 mv nerdctl /usr/local/bin
 
 # Install CNI Plugins
-wget https://github.com/containernetworking/plugins/releases/download/v1.1.1/cni-plugins-linux-amd64-v1.1.1.tgz
-mkdir -p /opt/cni/bin/
+wget https://github.com/containernetworking/plugins/releases/download/v1.1.1/cni-plugins-linux-amd64-v1.1.1.tgz 
+mkdir -p /opt/cni/bin/ 
 tar zxvf cni-plugins-linux-amd64-v1.1.1.tgz -C /opt/cni/bin/
 
-# Run a Docker like command with Nerdctl
+# Run a Docker like command with Nerdctl after you run the image type exit to terminate it and return to the host
 nerdctl run --rm -it ubuntu bash
 
 # Install and configure kubeadm
