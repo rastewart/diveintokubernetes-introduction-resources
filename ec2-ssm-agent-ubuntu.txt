@@ -1,1 +1,4 @@
+
+# install ssm use a t2-medium instance
 snap install amazon-ssm-agent --classic
+
