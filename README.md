@@ -55,7 +55,7 @@ apt-get install -y ca-certificates
 
 
 # And we'll install containerd
-apt install containerd
+apt install containerd -y
 
 # Enable systemd to start on reboot
 systemctl enable containerd
@@ -63,8 +63,8 @@ systemctl start containerd
 systemctl status containerd
 
 # Install nerdctl
-wget https://github.com/containerd/nerdctl/releases/download/v0.21.0/nerdctl-0.21.0-linux-amd64.tar.gz \
-tar zxvf nerdctl-0.21.0-linux-amd64.tar.gz nerdctl \
+wget https://github.com/containerd/nerdctl/releases/download/v0.21.0/nerdctl-0.21.0-linux-amd64.tar.gz
+tar zxvf nerdctl-0.21.0-linux-amd64.tar.gz nerdctl
 mv nerdctl /usr/local/bin
 
 # Install CNI Plugins
@@ -138,6 +138,9 @@ kubectl taint nodes $k8s_master node-role.kubernetes.io/master:NoSchedule-
 # If you are using Kubernetes 1.24 you'll also need to remove this taint
 kubectl taint nodes $k8s_master node-role.kubernetes.io/control-plane:NoSchedule-
 
+kubectl taint nodes $k8s_master node-role.kubernetes.io/control-plane:NoSchedule-
+kubectl taint nodes $k8s_master node-role.kubernetes.io/master:NoSchedule-
+
 ## Not covered in the course, you may also need to remove the following taint if it is set (changed in 1.24)
 kubectl taint nodes $k8s_master node-role.kubernetes.io/control-plane:NoSchedule-
 
@@ -149,7 +152,6 @@ mkdir /etc/kubernetes/resources
 
 # Create nginx pod yaml and save
 kubectl run nginx --image=nginx --dry-run=client -o yaml > /etc/kubernetes/resources/nginx_pod.yaml
-
 # Run pod and watch them create
 kubectl run nginx --image=nginx; watch kubectl get pods -o wide
 
@@ -161,6 +163,7 @@ nerdctl ps -a
 nerdctl namespace ls
 nerdctl -n k8s.io ps -a
 
+# If you have Docker installed on your local system
 # Manually create a pod in Docker
 docker run -d --ipc=shareable --name pause -p 8080:80 k8s.gcr.io/pause:3.6
 docker run -d --name mysql -e MYSQL_DATABASE=exampledb -e MYSQL_USER=exampleuser -e MYSQL_PASSWORD=examplepass -e MYSQL_RANDOM_ROOT_PASSWORD=1 --net=container:pause --ipc=container:pause --pid=container:pause --platform linux/amd64 mysql:5.7
